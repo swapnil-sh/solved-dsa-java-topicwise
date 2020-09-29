@@ -18,3 +18,32 @@ class SmallGreatThanTarget
         
     }
 }
+
+
+/*class Solution
+{
+    public char nextGreatestLetter(char[] a, char t) 
+    {
+        int st=0,end=a.length-1;
+        char c=' ';
+        while(st<=end)
+        {
+            int mid=st+(end-st)/2;
+            if(a[mid]<=t)
+            {
+                
+                st=mid+1;
+            }
+            else
+            {
+                c=a[mid];
+                end=mid-1;
+            }
+        }
+        
+        if(c==' ' && a.length!=0)
+            return a[0];
+        return c;
+        
+    }
+}*/
