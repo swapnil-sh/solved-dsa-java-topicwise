@@ -1,6 +1,5 @@
 import java.io.*;
 
-
 class Node
 {
 	int x;
@@ -16,22 +15,33 @@ class Linked
 		temp.next=null;
 		return temp;
 	}
-	public Node insert(int x,Node head)
+
+	public Node insert(int x,int pos,Node head)
 	{
-		if(head==null)
+		if(pos==1)
 		{
-			return getNewNode(x);
+			if(head==null)
+			{
+				return getNewNode(x);
+			}
+			Node temp=getNewNode(x);
+			temp.next=head;
+			head=temp;		
+			
+			return head;
 		}
 		
 		Node temp=getNewNode(x);
 		Node q=head;
-		while(q.next!=null)
+		for(int i=1;i<pos-1 && q.next!=null;i++)
+		{
 			q=q.next;
+		}
 		
+		temp.next=q.next;
 		q.next=temp;
-		
+
 		return head;
-		
 	}
 	
 	public void display(Node head)
@@ -45,6 +55,7 @@ class Linked
 	}
 	
 }
+
 public class LinkedList
 {
 	public static void main(String args[])
@@ -52,14 +63,21 @@ public class LinkedList
 		Node head=null;
 		Linked a=new Linked();
 		
-		head=a.insert(1,head);
-		head=a.insert(2,head);
-		head=a.insert(3,head);
-		head=a.insert(4,head);
-		head=a.insert(5,head);
+		head=a.insert(1,1,head);
+		head=a.insert(2,2,head);
+		head=a.insert(3,3,head);
+		head=a.insert(5,4,head);
+		head=a.insert(4,4,head);
+		head=a.insert(0,1,head);
+		head=a.insert(05,2,head);
+		head=a.insert(6,9,head);
+		
+		
+		
+
+
 		
 		a.display(head);
 		
 	}
 }
-
