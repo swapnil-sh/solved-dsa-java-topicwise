@@ -87,6 +87,36 @@ class Linked
 		return searchNode(head.next,x);
 	}
 	
+	public Node rotateClockwisebyKNodes(Node head, int k)
+	{
+		if(head==null || k<0)
+			return head;
+		
+		int len=sizeOfList(head);
+		if(k==0)
+			return head;
+		
+		Node q=head;
+		int i=1;
+		while(i<len-k)
+		{
+			i++;
+			q=q.next;
+		}
+		
+		Node p=q.next;
+		Node st=p;
+		q.next=null;
+		
+		while(p.next!=null)
+			p=p.next;
+		
+		p.next=head;
+		head=st;
+		
+		return head;
+	}
+	
 	public void display(Node head)
 	{
 		Node q=head;
@@ -121,6 +151,10 @@ public class LinkedList
 		
 		System.out.println("Size of Linked List = "+a.sizeOfList(head));
 		System.out.println("Search = "+a.searchNode(head,2));
+		
+		head=a.rotateClockwisebyKNodes(head,3);
+		
+		a.display(head);
 		
 	
 		
