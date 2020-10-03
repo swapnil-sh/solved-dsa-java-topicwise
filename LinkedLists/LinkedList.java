@@ -158,6 +158,19 @@ class Linked
         return temp;
     }
 	
+    public Node getMiddleNode(Node head)
+    {
+        Node slow=head;
+        Node fast=head;
+        
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        
+        return slow;
+    }
 	public void display(Node head)
 	{
 		Node q=head;
@@ -196,15 +209,16 @@ public class Main
 		a.display(head);
 
         
-       		head=a.rotateAntiClockwisebyKNodes(head,3);
+        head=a.rotateAntiClockwisebyKNodes(head,3);
 		System.out.println("Linked List after 3 AntiClockwise Rotation");
 		a.display(head);
 
 
 		head=a.reverse(head);
-        	System.out.println("Linked List after Reversal");
-        	a.display(head);
-	
+		System.out.println("Linked List after Reversal");
+		a.display(head);
+		
+		System.out.println("Get middle Node = "+a.getMiddleNode(head).x);
 		
 	}
 }
