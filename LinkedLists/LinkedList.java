@@ -116,6 +116,47 @@ class Linked
 		
 		return head;
 	}
+
+    public Node rotateAntiClockwisebyKNodes(Node head, int k)
+	{
+		if(head==null || k<0)
+			return head;
+		
+		int len=sizeOfList(head);
+		if(k==0)
+			return head;
+		
+		Node q=head;
+		int i=1;
+		while(i<k)
+		{
+			i++;
+			q=q.next;
+		}
+		
+		Node p=q.next;
+		Node st=p;
+		q.next=null;
+		
+		while(p.next!=null)
+			p=p.next;
+		
+        	p.next=head;
+        	head=st;
+		return head;
+	}
+
+    public Node reverse(Node head)
+    {
+        if(head==null || head.next==null)
+        return head;
+
+        Node temp=reverse(head.next);
+        head.next.next=head;
+        head.next=null;
+
+        return temp;
+    }
 	
 	public void display(Node head)
 	{
@@ -128,9 +169,9 @@ class Linked
 	}
 	
 }
-public class LinkedList
+public class Main
 {
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		Node head=null;
 		Linked a=new Linked();
@@ -141,9 +182,7 @@ public class LinkedList
 		head=a.insert(5,4,head);
 		head=a.insert(4,4,head);
 		head=a.insert(0,1,head);
-		//head=a.insert(05,2,head);
-		//head=a.insert(6,9,head);
-		
+
 		head=a.delete(head,1);
 		head=a.delete(head,5);
 		
@@ -153,9 +192,18 @@ public class LinkedList
 		System.out.println("Search = "+a.searchNode(head,2));
 		
 		head=a.rotateClockwisebyKNodes(head,3);
-		
+		System.out.println("Linked List after 3 Clockwise Rotation");
 		a.display(head);
-		
+
+        
+       		head=a.rotateAntiClockwisebyKNodes(head,3);
+		System.out.println("Linked List after 3 AntiClockwise Rotation");
+		a.display(head);
+
+
+		head=a.reverse(head);
+        	System.out.println("Linked List after Reversal");
+        	a.display(head);
 	
 		
 	}
