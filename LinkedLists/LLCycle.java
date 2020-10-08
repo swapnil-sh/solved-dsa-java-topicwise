@@ -34,3 +34,19 @@ public class LLCycle
         return true;
     }
 }
+
+
+//----------------HashSet Solution--------------------------------
+
+/*public boolean hasCycle(ListNode head) {
+    Set<ListNode> nodesSeen = new HashSet<>();
+    while (head != null) {
+        if (nodesSeen.contains(head)) {
+            return true;
+        } else {
+            nodesSeen.add(head);
+        }
+        head = head.next;
+    }
+    return false;
+}*/
