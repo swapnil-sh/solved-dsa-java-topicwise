@@ -36,3 +36,30 @@ public class IntersecOfLL
         return f_pointer;
     }
 }
+
+
+/*Intersection of Two Linked Lists - GeeksforGeeks HashSet Java Solution*/
+
+/*public static Node findIntersection(Node head1, Node head2)
+{
+HashSet<integer> set = new HashSet<>();
+
+while(head2!=null)
+{
+set.add(head2.data);
+head2=head2.next;
+}
+Node finalHead = new Node(-1);
+Node temp=finalHead;
+while(head1!=null)
+{
+if(set.contains(head1.data))
+{
+temp.next = new Node(head1.data);
+temp=temp.next;
+}
+head1=head1.next;
+}
+return finalHead.next;
+}
+*/
