@@ -34,8 +34,6 @@ class BinToDecLL
 
 
 
-
-
 /*1290. Convert Binary Number in a Linked List to Integer - Leetcode Reverse Java Solution*/
 
 /**
