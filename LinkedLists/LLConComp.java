@@ -44,3 +44,27 @@ class LLConComp
         return res;
     }
 }
+
+
+
+/*
+Absolute garbage explanation and test cases from leetcode. Let me help, here are some sample inputs:
+
+List =>  0->1->2->3->4->5->6->7->NULL
+G    =>  [0,2,3,5,7]
+
+Every element of the linked list that is in G is a component. So these are all components (marked with a 'c'):
+
+         c     c  c     c     c
+List =>  0->1->2->3->4->5->6->7->NULL
+
+If you were to group together all of the components (c), then you would have the following groups:
+
+0->
+2->3->
+5->
+7->
+
+Thus, 4 components... you're welcome.
+
+*/
