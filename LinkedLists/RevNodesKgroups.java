@@ -53,3 +53,52 @@ class RevNodesKgroups
         return dummy.next;
     }
 }
+
+
+
+//----------------------------------Recursive Solution------------------------------------------------------------
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+/*
+class Solution 
+{
+    public ListNode reverseKGroup(ListNode head, int k)
+    {
+        ListNode p=head;
+        ListNode last;
+        
+        int i;
+        for(i=0;i<k;i++)
+        {
+            if(p==null)
+                return head;
+            p=p.next;
+        }
+        
+        last=head;
+        for(i=0;i<k;i++)
+        {
+            ListNode temp=head.next;
+            head.next=p;
+            p=head;
+            head=temp;
+        }
+        
+        last.next=reverseKGroup(last.next,k);
+        
+        return p;
+    }
+}
+
+*/
