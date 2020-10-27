@@ -58,3 +58,60 @@ class ZigZagTravBT
 	   return res;
 	}
 }
+
+//------------------------------Leetcode Solution----------------------------------------
+
+/*
+class Solution 
+{
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) 
+    {
+        List<List<Integer>> res=new ArrayList<List<Integer>>();
+        if(root==null)
+            return res;
+        
+        Stack<TreeNode> s1=new Stack<>();
+        Stack<TreeNode> s2=new Stack<>();
+        
+        s1.push(root);
+        TreeNode temp;
+        
+        while(!s1.isEmpty() || !s2.isEmpty())
+        {
+            List<Integer> subL=new ArrayList<>();
+            while(!s1.isEmpty())
+            {
+                temp=s1.pop();
+                subL.add(temp.val);
+                if(temp.left!=null)
+                    s2.push(temp.left);
+                
+                if(temp.right!=null)
+                    s2.push(temp.right);
+            }
+            
+            if(subL.size()>0)
+                res.add(subL);
+       
+            subL=new ArrayList();            
+            while(!s2.isEmpty())
+            {
+                temp=s2.pop();
+                subL.add(temp.val);
+                if(temp.right!=null)
+                    s1.push(temp.right);
+                
+                if(temp.left!=null)
+                    s1.push(temp.left);
+            }
+            
+            if(subL.size()>0)
+                res.add(subL);
+            
+            subL=new ArrayList();
+        }
+        
+        return res;
+    }
+}
+*/
