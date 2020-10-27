@@ -1,4 +1,4 @@
-/* Reverse Level Order Traversal - GeeksforGeeks Recursive Java Solution*/
+/* Reverse Level Order Traversal - GeeksforGeeks Recursive and Iterative using Stack and Queue Java Solution*/
 
 class RevLevelOrderTravBT
 {
@@ -46,3 +46,44 @@ class RevLevelOrderTravBT
     }
     
 } 
+
+
+
+//--------------------------Iterative Solution using Stack and Queue--------------------------------
+
+
+/*
+
+class Tree
+{
+    public ArrayList<Integer> reverseLevelOrder(Node node) 
+    {
+        // code here
+        ArrayList<Integer> res=new ArrayList<>();
+        if(node==null)
+            return res;
+        
+        Stack<Node> st = new Stack();
+        Queue<Node> q = new LinkedList();
+        q.offer(node);
+        
+        Node temp;
+        while(!q.isEmpty())
+        {
+            temp=q.poll();
+            st.push(temp);
+            
+            if(temp.right!=null)
+                q.offer(temp.right);
+            
+            if(temp.left!=null)
+                q.offer(temp.left);
+        }
+        
+        while(!st.isEmpty())
+            res.add(st.pop().data);
+            
+        return res;
+    }
+
+*/
