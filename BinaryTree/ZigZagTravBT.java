@@ -59,7 +59,7 @@ class ZigZagTravBT
 	}
 }
 
-//------------------------------Leetcode Solution----------------------------------------
+//------------------------------Leetcode Iterative Solution----------------------------------------
 
 /*
 class Solution 
@@ -112,6 +112,41 @@ class Solution
         }
         
         return res;
+    }
+}
+*/
+
+//-----------------------------------Leetcode Recursive Solution-----------------------------------------
+/*
+class Solution 
+{
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root)
+    {
+        List<List<Integer>> res=new ArrayList<>();
+        solve(root, 0, res);
+        
+        return res;
+    }
+    
+    private void solve(TreeNode root, int levelFromRoot, List<List<Integer>> res)
+    {
+        if(root!=null)
+        {
+            boolean leftToRight=levelFromRoot%2==0;
+            if(res.size()==levelFromRoot)
+                res.add(new ArrayList<>());
+            
+            List<Integer> resAtLevel=res.remove(levelFromRoot);
+            
+            if(leftToRight)
+                resAtLevel.add(root.val);
+            else
+                resAtLevel.add(0,root.val);
+            
+            res.add(levelFromRoot,resAtLevel);
+            solve(root.left,levelFromRoot+1,res);
+            solve(root.right,levelFromRoot+1,res);
+        }
     }
 }
 */
