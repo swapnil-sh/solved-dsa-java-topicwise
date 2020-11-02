@@ -150,3 +150,33 @@ class solver
         }
     }
 }
+
+//------------------------------Solution using Hashset-------------------------------
+/*
+static boolean removeLoop(Node h) 
+    { 
+        HashSet<Node> s = new HashSet<Node>(); 
+        Node prev = null; 
+        while (h != null) { 
+            // If we have already has this node 
+            // in hashmap it means their is a cycle and we 
+            // need to remove this cycle so set the next of 
+            // the previous pointer with null. 
+  
+            if (s.contains(h)) { 
+                prev.next = null; 
+                return true; 
+            } 
+  
+            // If we are seeing the node for 
+            // the first time, insert it in hash 
+            else { 
+                s.add(h); 
+                prev = h; 
+                h = h.next; 
+            } 
+        } 
+  
+        return false; 
+    } 
+*/
