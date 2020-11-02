@@ -38,3 +38,49 @@ class RevLLInGroupsOfK
         return prev;
     }
 }
+
+
+//------------------------------Iterative Approach---------------------------------
+
+/*
+class GfG
+{
+    public static Node reverse(Node head, int k)
+    {
+        //Your code here
+        Node prev=null;
+        Node curr=head;
+        Node next;
+        Node newHead=null;
+        Node tail=null;
+        Node join=null;
+        int c=0;
+        
+        while(curr!=null)
+        {
+            c=0;
+            join=curr;
+            prev=null;
+            while(c<k && curr!=null)
+            {
+                c++;
+                next=curr.next;
+                curr.next=prev;
+                prev=curr;
+                curr=next;
+            }
+            
+            if(newHead==null)
+                newHead=prev;
+            
+            if(tail!=null)
+                tail.next=prev;
+            
+            tail=join;
+        }
+  
+            
+        return newHead;
+    }
+}
+*/
