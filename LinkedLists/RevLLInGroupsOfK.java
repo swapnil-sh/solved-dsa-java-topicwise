@@ -84,3 +84,50 @@ class GfG
     }
 }
 */
+
+
+//-------------------------Iteraitve approach using Stack----------------------------------------
+/*
+class GfG
+{
+    public static Node reverse(Node head, int k)
+    {
+        //Your code here
+        Stack<Node> st=new Stack<Node>();  
+        Node curr=head;  
+        Node prev=null;
+        
+        int c=0;
+        while(curr!=null)
+        {
+            c=0;
+            while(c<k && curr!=null)
+            {
+                st.push(curr);
+                curr=curr.next;
+                c++;
+            }
+            
+            while(!st.isEmpty())
+            {
+                if(prev==null)
+                {
+                    prev=st.pop();
+                    head=prev;
+                }
+                else
+                {
+                    prev.next=st.pop();
+                    prev=prev.next;
+
+                }
+            }
+            
+        }
+        
+        prev.next=null;
+        return head;
+    }
+}
+
+*/
