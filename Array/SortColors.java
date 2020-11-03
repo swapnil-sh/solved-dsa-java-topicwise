@@ -2,7 +2,7 @@
 
 /*
 
-Idea - We need to consider 3 points low,mid and high and set low and mid to starting index of array and high to last index
+Idea - We need to consider 3 pointers low,mid and high and set low and mid to starting index of array and high to last index
 
 From 0.....low-1 = o's (left side of low there will only be 0's)
 From low.....mid-1 = o's (Between low and mid there will only be 1's)
@@ -53,7 +53,8 @@ class SortColors
 Other Approaches:
 
 1. Sort array : TC = O(nlogn) and SC = O(1) 
-2. Use counting Sort (Count no of 0's,1's and 2's in the array in one pass and then fill up the array with 0's,1's,2's according to their count in another pass)
+
+2. Use *Counting Sort* (Count no of 0's,1's and 2's in the array in one pass and then fill up the array with 0's,1's,2's according to their count in another pass)
 	TC - O(2n)
 	SC - O(1)
 
