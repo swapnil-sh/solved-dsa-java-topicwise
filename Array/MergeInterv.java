@@ -1,9 +1,84 @@
-/*56. Merge Intervals - Leetcode Java Solutions*/
+/*56. Merge Intervals - Leetcode and GFG Java Solutions*/
 
 /*
 TC = O(nlogn)+O(n)
 */
 
+
+/*---------------------Full Program GeeksforGeeks--------------------- */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Interval
+{
+    int start,end;
+    Interval(int start,int end)
+    {
+        this.start=start;
+        this.end=end;
+    }
+}
+class MergeInterv
+{
+    public static void solve(Interval arr[])
+    {
+     
+        Arrays.sort(arr,new Comparator<Interval>(){ 
+            public int compare(Interval i1,Interval i2) 
+            { 
+                return i1.start - i2.start; 
+            } 
+        }); 
+    
+        int index=0; 
+    
+        for (int i=1;i<arr.length;i++)  
+        {  
+             
+            if (arr[index].end>= arr[i].start)  
+            {  
+                arr[index].end = Math.max(arr[index].end, arr[i].end);  
+                arr[index].start = Math.min(arr[index].start, arr[i].start);  
+                
+            }  
+            else 
+            { 
+                index++; 
+                arr[index] = arr[i];  
+            }     
+        } 
+          
+        for (int i=0;i<=index;i++)  
+                System.out.print(arr[i].start + " " + arr[i].end +" ");
+    }
+	public static void main (String[] args)throws Exception
+	{
+		//code
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		
+		while(t--!=0)
+		{
+		    int n=sc.nextInt();
+		    int i;
+		    Interval arr[]=new Interval[n]; 
+            
+            
+            for(i=0;i<n;i++)
+		    {
+		        int st=sc.nextInt();
+		        int end=sc.nextInt();
+		        arr[i]=new Interval(st,end); 
+		    }
+		    
+		    solve(arr);
+		    System.out.println();
+		}
+	}
+}
+/*
 class MergeInterv
 {
     public int[][] merge(int[][] intervals)
@@ -35,7 +110,7 @@ class MergeInterv
         return res.toArray(new int[0][]);
     }
 }
-
+*/
 
 /*class Solution 
 {
