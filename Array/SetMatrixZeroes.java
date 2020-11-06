@@ -207,14 +207,10 @@ class Solution
 
 
 /*
-Possible follow-up questions to ask the interviewer:-
 
-    What are the constraints on the size of the matrix? (Ans: 1 ≤ N, M ≤ 1000)
-    Do we need to change the rows and columns of elements which we set to zero? (Ans: No, only the zeroes present in the original matrix)
+Summing up
 
-Solutions
-
-We are discussing three ways to solve this problem:
+We have discussed three ways to solve this problem:
 
     Brute Force Approach: Using nested loops and extra space
     Using Hash Table: Storing the status of rows and columns in the Hash Table.
