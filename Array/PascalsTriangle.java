@@ -65,7 +65,7 @@ class PascalsTriangle
 
 
 /*
-------------------------------RecursiveSolution------------------------------
+------------------------------Recursive Solution------------------------------
 
 Time complexity : O(n^2)
 Space Complexity : O(n^2) (for storing res)
