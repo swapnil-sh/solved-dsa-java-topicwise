@@ -2,9 +2,9 @@
 
 
 /*
----------------------------Transpose and Reverse Row Apporach-----------------------
+---------------------------Transpose and Reverse Each Row Apporach-----------------------
 
-TC - O(n)
+TC - O(n*n)
 SC - O(1)
 
 */
@@ -39,3 +39,14 @@ class RotateImage
         
     }
 }
+
+
+
+
+/*
+---------------------------Transpose and Reverse Row Apporach with Extra Space i.e. temp matrix to store transpose-----------------------
+
+TC - O(n*n)
+SC - O(n*n)
+
+*/
