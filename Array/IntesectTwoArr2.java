@@ -1,4 +1,4 @@
-/*350. Intersection of Two Arrays II - Java Solutions*/
+/*350. Intersection of Two Arrays II - Leetcode Java Solutions*/
 
 /*
 -----------------------HashMap Solution-----------------
