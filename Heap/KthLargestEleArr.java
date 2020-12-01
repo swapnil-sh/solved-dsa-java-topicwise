@@ -69,4 +69,4 @@ TC - O(nlogn)
 SC - O(1)
 */
 
-/*Sort the array and then return the kth smallest index from the array.*/
+/*Sort the array and then return the kth largest index from the array.*/
