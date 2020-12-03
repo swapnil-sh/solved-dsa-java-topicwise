@@ -80,3 +80,15 @@ class Solution
     }
 }
 */ 
+
+/*
+----------------------------Using QuickSelect/Div&Conq-----------------------------
+
+
+
+Time Complexity: O(N) in average case and O(N2) in the worst case, where N is the length of points.
+
+Space Complexity: O(N)
+
+*/
+
