@@ -34,17 +34,63 @@ class BST
         return root;   
     }
 
+    public Node getSuccessor(Node node)
+    {
+        if(node==null)
+            return null;
+        
+        Node temp=node.right;
+        while(temp.left!=null)
+            temp=temp.left;
+        
+        return temp;
+        
+    }
+
+    public Node delete(Node root, int val)
+    {
+        if(root==null)
+            return null;
+
+        if(val<root.data)
+            root.left=delete(root.left, val);
+        else if(val>root.data)
+            root.right=delete(root.right, val);
+        else
+        {
+            if(root.left==null || root.right==null)
+            {
+                Node temp=null;
+                temp=(root.left==null)?root.right:root.left;
+
+                if(temp==null)
+                    return null;
+                else
+                    return temp;
+            }
+            else
+            {
+                Node successor=getSuccessor(root);
+                root.data=successor.data;
+                root.right=delete(root.right, successor.data);
+            }
+        }
+
+        return root;
+    }
+
+    
     public void display(Node root)
     {
         if(root==null)
             return;
         display(root.left);
-        System.out.println(root.data);
+        System.out.print(root.data+" ");
         display(root.right);
     }
 }
 
-public class BSTImp
+public class Main
 {
     public static void main(String args[]) 
     {
@@ -62,6 +108,9 @@ public class BSTImp
         root=a.insert(root, 14);
         root=a.insert(root, 13);
 
+        a.display(root);
+        System.out.println();
+        a.delete(root, 3);
         a.display(root);
     }
 }
