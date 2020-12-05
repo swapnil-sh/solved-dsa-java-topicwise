@@ -28,3 +28,40 @@ class CountNodesInRange
         return res;
     }
 }
+
+/*
+---------------Iterative Solution using Queue-----------
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(Height of the BST).
+*/
+
+/*
+class CountNodesInRange
+{
+    public static int getCountOfNode(Node root,int l, int h)
+    {
+        
+        int c=0;
+        if(root==null)
+            return 0;
+
+        Queue<Node> q=new LinkedList<>();
+        q.offer(root);
+        
+        while(!q.isEmpty())
+        {
+            Node curr=q.peek();
+            q.poll();
+            if(curr.data>=l && curr.data<=h)
+                c++;
+            if(curr.left!=null)
+                q.offer(curr.left);
+            if(curr.right!=null)
+                q.offer(curr.right);
+        }
+        
+        return c;
+    }
+}
+*/
