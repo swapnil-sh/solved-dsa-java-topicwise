@@ -1,8 +1,8 @@
-/* Merge two BST 's  - GeeksforGeeks Java Solution*/
+/*Merge two BST's - GeeksforGeeks Java Solutions*/
 
 
 /*
-_-----------Recursion Inorder Traversal----------------
+-----------Recursion Inorder Traversal----------------
 
 Time Complexity: O(n1+n2)
 Space Complexity: O(n1+n2)
@@ -66,3 +66,55 @@ class MergeTwoBST
         return res;
     }
 }
+
+
+/*
+--------------------Using Iteration and Stack Approach----------------------------
+TC - O(M+N) 
+SC - O(h1 + h2)
+*/
+/*
+class Solution
+{
+    public List<Integer> merge(Node root1, Node root2)
+    {
+        ArrayList<Integer> ans = new ArrayList<>();
+        ArrayDeque<Node> st1 = new ArrayDeque<>(), st2 = new ArrayDeque<>();
+        
+        push(root1, st1);
+        push(root2, st2);
+        
+        while(!st1.isEmpty() || !st2.isEmpty()) 
+        {
+            int cmp;
+            if(st1.isEmpty()) 
+                cmp = 1;
+            else if(st2.isEmpty()) 
+                cmp = -1;
+            else
+                cmp = st1.peek().data - st2.peek().data;
+            
+            if(cmp < 0) 
+            {
+                ans.add(st1.peek().data);
+                push(st1.removeFirst().right, st1);
+            }
+            else
+            {
+                ans.add(st2.peek().data);
+                push(st2.removeFirst().right, st2);
+            }
+        }
+        return ans;
+    }
+    
+    private void push(Node root, ArrayDeque<Node> st) 
+    {
+        while(root!=null) 
+        {
+            st.addFirst(root);
+            root = root.left;
+        }
+    }
+}
+*/
