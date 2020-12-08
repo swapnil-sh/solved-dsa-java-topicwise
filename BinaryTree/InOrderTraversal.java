@@ -54,6 +54,57 @@ class InOrderTraversal
     }
 }
 
+/*
+---------------------Using Morris Traversal-----------------------
+Storing Inorder Successor
+
+TC - O(n)
+SC - O(1)
+*/
+
+/*
+class Tree
+{
+    // Return a list containing the inorder traversal of the given tree
+    ArrayList<Integer> inOrder(Node root)
+    {
+        // Code
+        ArrayList<Integer> res=new ArrayList<>();
+        if(root==null)
+            return res;
+        
+        Node curr=root;
+        while(curr!=null)
+        {
+            if(curr.left==null)
+            {
+                res.add(curr.data);
+                curr=curr.right;
+            }
+            else
+            {
+                Node prev=curr.left;
+                while(prev.right!=null && prev.right!=curr)
+                    prev=prev.right;
+                
+                if(prev.right==null)
+                {
+                    prev.right=curr;
+                    curr=curr.left;
+                }
+                else
+                {
+                    prev.right=null;
+                    res.add(curr.data);
+                    curr=curr.right;
+                }
+            }
+        }
+        
+        return res;
+    }
+}
+*/
 
 //--------------------Recursive Solution----------------------------
 
@@ -76,3 +127,5 @@ class Solution
 }
 
 /*
+
+
