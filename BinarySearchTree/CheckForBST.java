@@ -1,12 +1,51 @@
 /*Check for BST - GeeksforGeeks Java Solutions*/
 
+
+/*
+---------------------Using Inorder Traversal---------------------
+
+2.1 - Using an Array for storing elements in sorted order and then checking
+
+TC - O(n)
+SC - O(n)
+
+2.2 - Without using Array and only stroing the previous value
+
+TC - O(n)
+SC - O(1)
+*/
+
+class CheckForBST
+{
+    // return true if the given tree is a BST, else return false
+    Node prev=null;
+    boolean isBST(Node root)
+    {
+            // code here.
+        if(root!=null)
+        {
+            if(!isBST(root.left))
+                return false;
+            
+            if(prev!=null && root.data<=prev.data)
+                return false;
+            prev=root;
+            
+            if(!isBST(root.right))
+                return false;
+        }
+        return true;
+    }
+}
+
+
 /*
 ---------------------Using Range check(min and max values)---------------------
 
 TC - O(n)
 SC - O(n)
 */
-
+/*
 class CheckForBST
 {
     // return true if the given tree is a BST, else return false
@@ -27,7 +66,7 @@ class CheckForBST
         return solve(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 }
-
+*/
 
 /*
 ---------------------Using Max and Min Value---------------------
