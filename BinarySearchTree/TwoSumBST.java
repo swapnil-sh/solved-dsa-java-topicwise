@@ -68,3 +68,14 @@ class TwoSumBST
         return 0;
     }
 }
+
+/*
+---------Using Inorder Traversal and an Array----------------------
+
+TC - O(n^2)
+SC - O(n)
+
+TC - O(n) (Using Two Pointers i and j)
+SC - O(n)
+
+*/
