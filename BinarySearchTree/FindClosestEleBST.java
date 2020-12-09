@@ -45,3 +45,76 @@ TC - O(n+logn)=O(n)
 SC - O(n)
 
 */
+
+
+/*
+------------------Using Morris Traversal (Read Later)-----------------
+
+TC - O(n)
+SC - O(1)
+*/
+
+/*
+// Function to find the Node closest to the  
+// given key in BST using Morris Traversal 
+static Node closestNodeUsingMorrisTraversal(Node root,  
+                                        int key) 
+{ 
+    int diff = Integer.MAX_VALUE; 
+    Node curr = root; 
+    Node closest = null; 
+  
+    while (curr != null)  
+    { 
+        if (curr.left == null)  
+        { 
+  
+            // updating diff if the current diff is 
+            // smaller than prev difference 
+            if (diff > Math.abs(curr.data - key))  
+            { 
+                diff = Math.abs(curr.data - key); 
+                closest = curr; 
+            } 
+  
+            curr = curr.right; 
+        } 
+  
+        else
+        { 
+  
+            // finding the inorder predecessor 
+            Node pre = curr.left; 
+            while (pre.right != null && 
+                pre.right != curr) 
+                pre = pre.right; 
+  
+            if (pre.right == null)  
+            { 
+                pre.right = curr; 
+                curr = curr.left; 
+            } 
+  
+            // threaded link between curr and 
+            // its predecessor already exists 
+            else
+            { 
+                pre.right = null; 
+  
+                // if a closer Node found, then update  
+                // the diff and set closest to current 
+                if (diff > Math.abs(curr.data - key))  
+                { 
+                    diff = Math.abs(curr.data - key); 
+                    closest = curr; 
+                } 
+  
+                // moving to the right child 
+                curr = curr.right; 
+            } 
+        } 
+    } 
+  
+    return closest; 
+} 
+*/
