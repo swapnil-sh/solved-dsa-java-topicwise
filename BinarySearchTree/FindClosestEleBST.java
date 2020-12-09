@@ -3,7 +3,7 @@
 /*
 -----------------Using Recursion---------------------
 
-TC - O(n) (for Skewed Trees) else O(h)
+TC - O(n) (for Skewed Trees) else O(logn)
 SC - O(h)
 */
 
