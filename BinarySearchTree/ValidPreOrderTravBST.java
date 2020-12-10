@@ -53,3 +53,21 @@ class ValidPreOrderTravBST
 		}
 	}
 }
+
+
+/*
+
+----------------Brute FOrce Approach---------------------
+
+A Simple Solution is to do following for every node pre[i] starting from first one.
+
+1) Find the first greater value on right side of current node. 
+   Let the index of this node be j. Return true if following 
+   conditions hold. Else return false
+    (i)  All values after the above found greater value are 
+         greater than current node.
+    (ii) Recursive calls for the subarrays pre[i+1..j-1] and 
+         pre[j+1..n-1] also return true. 
+
+Time Complexity of the above solution is O(n2)
+*/
