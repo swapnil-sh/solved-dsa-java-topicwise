@@ -1,5 +1,22 @@
 /*Add One to Number - InterviewBit Array Section Java Solution*/
 
+
+/*
+TC - O(n)
+
+
+
+    NOTE: Certain things are intentionally left unclear in this question which you should practice asking the interviewer.
+    For example, for this problem, following are some good questions to ask :
+
+        Q : Can the input have 0’s before the most significant digit. Or in other words, is 0 1 2 3 a valid input?
+
+        A : For the purpose of this question, YES
+        Q : Can the output have 0’s before the most significant digit? Or in other words, is 0 1 2 4 a valid output?
+        A : For the purpose of this question, NO. Even if the input has zeroes before the most significant digit.
+
+
+*/
 public class AddOneToNum
 {
     public int[] plusOne(int[] a) 
