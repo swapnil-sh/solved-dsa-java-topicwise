@@ -269,3 +269,31 @@ SC = O(1)
         return res;
     }
 }*/
+
+
+
+/*
+Swap Sort Sudo Code
+
+TC - O(n) (can run more than n times in some cases)
+SC - O(1)
+
+int i=0;
+while(i<n)
+{
+   if(a[i]!=a[a[i]-1])
+      swap(a[i],a[a[i]-1]);
+   else
+      i++;
+}
+
+for(i=0;i<n;i++)
+{
+    if(a[i]!=i+1)
+    {
+	i+1----------> missing number
+	a[i]---------> duplicate number
+    }
+}
+
+*/
