@@ -1,7 +1,7 @@
 /* BFS of graph  - GeeksforGeeks Java Solution*/
 
 /*
-----------------------Using Stack--------------------
+----------------------Using Queue--------------------
 
 Time Complexity: O(V + E).
 Auxiliary Space: O(V).
