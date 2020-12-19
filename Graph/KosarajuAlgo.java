@@ -1,5 +1,12 @@
 /* Strongly Connected Components (Kosaraju's Algo) - GeeksforGeeks Java Solution*/
 
+
+/*
+------------------Using DFS------------------
+
+Time Complexity: O(N + M).
+Auxiliary Space: O(N).
+*/
 class KosarajuAlgo
 {
     static Stack<Integer> stack;
