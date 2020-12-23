@@ -121,3 +121,58 @@ class Islands {
     }
 }
 */
+
+
+
+/*
+----------Leetcode Solution--------------
+*/
+
+/*
+
+class Solution 
+{
+    
+    private boolean validAdjEdges(char [][]grid, int i, int j)
+    {
+        int n=grid.length;
+        int m=grid[0].length;
+        
+        return (((i>=0 && i<n) && (j>=0 && j<m)) && (grid[i][j]=='1'));
+    }
+    
+    private void dfs(int i, int j, char [][] grid)
+    {
+        
+        int rowNum[]={-1,0,1,0};
+        int colNum[]={0,-1,0,1};
+        grid[i][j]='0';
+        int k;
+        
+        for(k=0;k<4;k++)
+        {
+            if(validAdjEdges(grid, i+rowNum[k], j+colNum[k]))
+                dfs(i+rowNum[k], j+colNum[k], grid);
+        }
+        
+    }
+    public int numIslands(char[][] grid)
+    {
+        int i,j,count=0;
+        
+        for(i=0;i<grid.length;i++)
+        {
+            for(j=0;j<grid[i].length;j++)
+            {
+                if(grid[i][j]=='1')
+                {
+                    dfs(i, j, grid);
+                    count++;
+                }
+            }
+        }
+        
+        return count;
+    }
+}
+*/
