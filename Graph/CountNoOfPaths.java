@@ -12,7 +12,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class CountNoOfPaths
+class Graph
 {
     
     ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
@@ -55,7 +55,7 @@ class CountNoOfPaths
     }
 }
 
-class GFG
+class CountNoOfPaths
 {
 	public static void main (String[] args)throws IOException
 	{
