@@ -1,5 +1,11 @@
 /*Rat in a Maze Problem - I: GeeksforGeeks Java Solution using Backtracking*/
 
+
+/*
+Time Complexity: O((N2)4).
+Auxiliary Space: O(L*X), L = length of the path, X = number of paths.
+
+*/
 class RatInMaze
 {
     private static void findPathInMaze(int m[][], int n, ArrayList<String> res, int i, int j, String path)
