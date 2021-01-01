@@ -1,6 +1,7 @@
 /*Check Array Formation Through Concatenation - Java Leetcode Solutions*/
 
 /*
+-----------------------Using HashMap----------------------------------
 TC - O(n)
 SC - O(n)
 */
@@ -41,3 +42,39 @@ class ChechArrFormConcat
         
     }
 }
+
+/*
+-----------------------Using Array----------------------------------
+
+TC - O(n)
+SC - O(1)
+*/
+
+/*
+class Solution 
+{
+    public boolean canFormArray(int[] a, int[][] pieces) 
+    {
+        
+        int index[]=new int[101];
+        int i;
+        for(i=0;i<a.length;i++)
+            index[a[i]]=i+1;
+        
+        for(int piece[]: pieces)
+        {
+            if(index[piece[0]]==0)
+                return false;
+            
+            for(i=1;i<piece.length;i++)
+            {
+                if(index[piece[i]]-index[piece[i-1]]!=1)
+                    return false;
+            }
+        }
+        
+        return true;
+        
+    }
+}
+*/
