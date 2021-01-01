@@ -1,5 +1,9 @@
 /*Check Array Formation Through Concatenation - Java Leetcode Solutions*/
 
+/*
+TC - O(n^2)
+SC - O(n)
+*/
 
 class ChechArrFormConcat
 {
