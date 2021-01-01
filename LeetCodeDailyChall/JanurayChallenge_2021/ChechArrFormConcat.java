@@ -1,7 +1,7 @@
 /*Check Array Formation Through Concatenation - Java Leetcode Solutions*/
 
 /*
-TC - O(n^2)
+TC - O(n)
 SC - O(n)
 */
 
