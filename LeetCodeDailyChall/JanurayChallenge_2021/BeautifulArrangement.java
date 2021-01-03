@@ -1,4 +1,4 @@
-/*Beautiful Arrangement - Leetcode Java Solutions*/
+/*526.Beautiful Arrangement - Leetcode Java Solutions*/
 
 /*
 -------------------USing Backtracking(DFS)----------------------
