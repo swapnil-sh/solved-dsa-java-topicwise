@@ -1,11 +1,52 @@
 /*Word Break - GeeksforGeeks Java Solutions*/
 
 /*
+--------------------Memoization Solution-------------------------------
+
+*/
+class WordBreak
+{
+    static HashMap<String, Integer> dp=new HashMap<>();
+    private static int solve(String s, Set<String> hs)
+    {
+        int size=s.length();
+        if(size==0)
+            return 1;
+        
+        if(dp.containsKey(s) && dp.get(s)!=0)
+            return dp.get(s);
+        
+        int i,j;
+        for(i=1;i<=size;i++)
+        {
+            String s1=s.substring(0,i);
+            if(hs.contains(s1) && solve(s.substring(i, size), hs)==1)
+            {
+                dp.put(s, 1);
+                return 1;
+            }
+        }
+        
+        return 0;
+    }
+    public static int wordBreak(String s, ArrayList<String> dict)
+    {
+        //code here
+        Set<String> hs=new HashSet<>();
+        int i;
+        
+        for(i=0;i<dict.size();i++)
+            hs.add(dict.get(i));
+        
+        return solve(s,hs);
+    }
+}
+
+/*
 --------------------Recursive Solution-------------------------------
 
 */
-
-
+/*
 class WordBreak
 {
     private static boolean solve(String s, Set<String> hs)
@@ -42,3 +83,4 @@ class WordBreak
         return solve(s,hs)==true?1:0;
     }
 }
+*/
