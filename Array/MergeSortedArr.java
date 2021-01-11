@@ -8,6 +8,50 @@ SC - O(1)
 
 class MergeSortedArr
 {
+    public void merge(int[] a, int m, int[] b, int n) 
+    {
+        if(n == 0)
+            return;
+        
+        if(m == 0)
+        {
+            System.arraycopy(b, 0, a, 0, n);
+            return;
+        }
+        
+        int i=m-1;
+        int j=n-1;
+        int p=m+n-1;
+        int k;
+        
+        while(i>=0 && j>=0)
+        {
+            if(b[j]>=a[i])
+            {
+                a[p]=b[j];
+                j--;                
+            }
+            else
+            {
+                a[p]=a[i];
+                i--;
+            }
+            
+            p--;
+        }
+        
+        if(i<0 && j!=-1)
+        {
+            for(k=j;k>=0;k--)
+                a[p--]=b[k];
+        }
+        
+    }
+}
+
+/*
+class MergeSortedArr
+{
     public void merge(int[] a, int m, int[] b, int n)
     {
         if(n == 0)
@@ -31,3 +75,4 @@ class MergeSortedArr
     
     }
 }
+*/
