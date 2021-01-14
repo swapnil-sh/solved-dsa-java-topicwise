@@ -1,11 +1,49 @@
 /*1658. Minimum Operations to Reduce X to Zero - Leetcode Java Solutions*/
 
 /*
-------------------------Using HashMap------------------------------
+------------------------Using Sliding Window------------------------------
 TC-O(n)
 SC-O(n)
 */
 
+
+class MinOpsReduceXtoZero
+{
+    public int minOperations(int[] a, int x) 
+    {
+        int i, j, target=-x, n=a.length,sum=0,res=-1;
+        for(i=0;i<n;i++)
+            target+=a[i];
+        
+        if(target==0)
+            return n;
+        
+        if(target<0)
+            return -1;
+        
+        i=0;
+        j=0;
+        
+        while(i<n && j<n)
+        {
+            sum+=a[j];            
+            while(i<j && sum>target)
+                    sum-=a[i++];
+            if(sum==target)
+                res=Math.max(res, j-i+1);            
+            j++;
+        }
+        
+        return res==-1?-1:n-res;
+        
+    }
+}
+/*
+------------------------Using HashMap------------------------------
+TC-O(n)
+SC-O(n)
+*/
+/*
 class MinOpsReduceXtoZero
 {
     public int minOperations(int[] a, int x)
@@ -34,3 +72,4 @@ class MinOpsReduceXtoZero
         return res==-1?-1:a.length-res;
     }
 }
+*/
