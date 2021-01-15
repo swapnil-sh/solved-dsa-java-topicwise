@@ -1,6 +1,52 @@
 /*42. Trapping Rain Water - Leetcode Java Solutions*/
 
+/*
+----------------------Two Pointer Solution------------------------------
 
+TC - O(n)
+SC - O(1)
+
+*/
+class TrapRainWater
+{
+    public int trap(int[] a)
+    {
+        if (a.length == 0) 
+            return 0;
+        
+        int n = a.length; 
+        int left=0; int right=n-1;
+        int res=0;
+        int maxleft=0, maxright=0;
+        
+        while(left<=right)
+        {
+            
+            if(a[left]<=a[right])
+            {
+                
+                if(a[left]>=maxleft) 
+                    maxleft=a[left];
+                else 
+                    res+=maxleft-a[left];
+                
+                left++;
+            }
+            else
+            {
+                
+                if(a[right]>=maxright) 
+                    maxright= a[right];
+                else 
+                    res+=maxright-a[right];
+                
+                right--;
+            }
+        }
+        return res;
+        
+    }
+}
 /*
 ----------------------Using PrefixMax and SuffixMax Array Solution------------------------------
 
@@ -8,6 +54,7 @@ TC - O(3n)
 SC - O(2n)
 
 */
+/*
 class TrapRainWater
 {
     public int trap(int[] a) 
@@ -42,6 +89,7 @@ class TrapRainWater
         
     }
 }
+*/
 /*
 ----------------------Brute Force Solution------------------------------
 
