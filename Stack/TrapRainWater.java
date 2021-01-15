@@ -2,12 +2,54 @@
 
 
 /*
+----------------------Using PrefixMax and SuffixMax Array Solution------------------------------
+
+TC - O(3n)
+SC - O(2n)
+
+*/
+class TrapRainWater
+{
+    public int trap(int[] a) 
+    {
+        int i,j,n=a.length;
+        int res=0,max=Integer.MIN_VALUE;
+        int prefixMax[]=new int[n];
+        int suffixMax[]=new int[n];
+        
+        for(i=0;i<n;i++)
+        {
+            if(max<a[i])
+                max=a[i];
+            
+            prefixMax[i]=max;
+        }
+        
+        max=Integer.MIN_VALUE;
+        for(i=n-1;i>=0;i--)
+        {
+            if(max<a[i])
+                max=a[i];
+            
+            suffixMax[i]=max;
+        }
+        
+        for(i=0;i<n;i++)
+            res+=Math.min(prefixMax[i], suffixMax[i])-a[i];
+        
+        
+        return res;
+        
+    }
+}
+/*
 ----------------------Brute Force Solution------------------------------
 
 TC - O(n^2)
 SC - O(n)
 
 */
+/*
 class TrapRainWater
 {
     public int trap(int[] h) 
@@ -32,3 +74,4 @@ class TrapRainWater
         
     }
 }
+*/
