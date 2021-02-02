@@ -1,4 +1,4 @@
-/*73. Set Matrix Zeroes - Leetcode Java Solutions with explainations*/
+/*73. Set Matrix Zeroes - Leetcode and InterviewBit Java Solutions with explainations*/
 
 /*
 --------------------------Method 3 - Using In-Place Hashing---------------------------------
@@ -73,6 +73,71 @@ class SetMatrixZeroes
     }
 }
 
+
+/*
+----------------Interviewbit Solution-------------------------------
+*/
+
+/*
+public class Solution 
+{
+    public void setZeroes(ArrayList<ArrayList<Integer>> a)
+    {
+        boolean frow=false;
+        boolean fcol=false;
+        int n=a.size();
+        int m=a.get(0).size();
+        int i,j;
+        
+        for(i=0;i<m;i++)
+        {
+            if(a.get(0).get(i)==0)
+                frow=true;
+        }
+        
+        for(i=0;i<n;i++)
+        {
+            if(a.get(i).get(0)==0)
+                fcol=true;
+        }
+        
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<m;j++)
+            {
+                if(a.get(i).get(j)==0)
+                {
+                    a.get(i).set(0, 0);
+                    a.get(0).set(j, 0);
+                    
+                }
+            }
+        }
+        
+        for(i=1;i<n;i++)
+        {
+            for(j=1;j<m;j++)
+            {
+                if(a.get(i).get(0)==0 || a.get(0).get(j)==0)
+                    a.get(i).set(j, 0);
+            }
+        }
+        
+        if(frow==true)
+        {
+            for(i=0;i<m;i++)
+                a.get(0).set(i, 0);
+        }
+        
+        if(fcol==true)
+        {
+            for(i=0;i<n;i++)
+                a.get(i).set(0, 0);
+        }
+    }
+}
+
+*/
 /*
 ----------------------------------Method 2 - Better Solution---------------------------------
 
