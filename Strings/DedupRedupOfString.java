@@ -37,7 +37,8 @@ public class DedupRedupOfString
         return "";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         String dedupStr = dedup("abcdeabcdfabcde", 5);
         System.out.println(dedupStr);
         //redup(dedupStr, 5);
