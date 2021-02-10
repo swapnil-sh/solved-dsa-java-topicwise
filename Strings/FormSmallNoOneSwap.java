@@ -1,5 +1,12 @@
 /*Form the smallest number using at most one swap operation - GeeksforGeeks Java Solution*/
 
+/*
+Create an array rightMin[]. rightMin[i] contains the index of the smallest digit which is on the right side of num[i] and also smaller than num[i]. 
+If no such digit exists then rightMin[i] = -1. 
+Now, check that whether num[0] has a right smaller digit which is not equal to 0.
+If so then swap 1st digit with its right smaller digit. 
+Else, traverse the rightMin[] array from i = 1 to n-1(where n is the total number of digits in num), and find the first element having rightMin[i] != -1. Perform the swap(num[i], num[rightMin[i]]) operation and break.
+*/
 
 /*
 Time Complexity: O(n), where n is the total number of digits.
