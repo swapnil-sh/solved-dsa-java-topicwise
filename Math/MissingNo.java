@@ -28,6 +28,43 @@ class MissingNo
 
 
 /*
+Modification for Overflow  
+
+    Approach: The approach remains the same but there can be overflow if n is large. In order to avoid integer overflow, pick one number from known numbers and subtract one number from given numbers. This way there won't have Integer Overflow ever.
+    Algorithm: 
+        Create a variable sum = 1 to which will store the missing number and a counter c = 2.
+        Traverse the array from start to end.
+        Update the value of sum as sum = sum - array[i] + c and update c as c++.
+        Print the missing number as a sum.
+*/
+
+/*
+class GFG
+{
+
+    // a represents the array
+    // n : Number of elements in array a
+    static int getMissingNo(int a[], int n) 
+    {
+        int total = 1;
+        for (int i = 2; i <= (n + 1); i++)
+        {
+            total += i;
+            total -= a[i - 2];
+        }
+        return total;
+    }
+
+    // Driver Code
+    public static void main(String[] args)
+    {
+        int[] arr = { 1, 2, 3, 5 };
+        System.out.println(getMissingNo(arr, arr.length));
+    }
+}
+*/
+
+/*
 ------------------------Using XOR Bit Manip---------------------
 
 Intuition
@@ -36,8 +73,8 @@ We can harness the fact that XOR is its own inverse to find the missing element 
 
 Algorithm
 
-Because we know that nums contains nnn numbers and that it is missing exactly one number on the range [0..n−1][0..n-1][0..n−1], we know that nnn definitely replaces the missing number in nums.
-Therefore, if we initialize an integer to nnn and XOR it with every index and value, we will be left with the missing number. 
+Because we know that nums contains n numbers and that it is missing exactly one number on the range [0..n−1], we know that nnn definitely replaces the missing number in nums.
+Therefore, if we initialize an integer to n and XOR it with every index and value, we will be left with the missing number. 
 Consider the following example (the values have been sorted for intuitive convenience, but need not be):
 
 TC - O(n)
@@ -59,6 +96,8 @@ class Solution
     }
 }
 */
+
+
 
 /*
 -------------------------Using Sorting----------------------
