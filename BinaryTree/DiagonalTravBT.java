@@ -83,3 +83,101 @@ class Main
 		}
 	}
 }
+
+
+/*
+---------------------------------------GFG Solution using Recursion and HashMap-----------------------------
+
+TC - O(n)
+SC- O(n)
+*/
+
+/*
+class Tree
+{
+    public void solve(Node root, int hd, Map<Integer, ArrayList<Integer>> tm)
+    {
+        if(root==null)
+            return;
+        
+        if(tm.containsKey(hd))
+            tm.get(hd).add(root.data);
+        else
+        {
+            ArrayList<Integer> temp=new ArrayList<>();
+            temp.add(root.data);
+            tm.put(hd, temp);
+        }
+        
+        solve(root.left, hd+1, tm);
+        solve(root.right, hd, tm);
+    }
+     public ArrayList<Integer> diagonal(Node root)
+     {
+           //add your code here.
+           ArrayList<Integer> res=new ArrayList<>();
+           if(root==null)
+                return res;
+        
+            Map<Integer, ArrayList<Integer>> tm=new HashMap<>();
+            
+            solve(root,0,tm);
+            
+            for(Map.Entry<Integer, ArrayList<Integer>> entry:tm.entrySet())
+            {
+                ArrayList<Integer> al = entry.getValue();
+                for(Integer i : al)
+                    res.add(i);
+            }
+            
+            return res;
+      }
+}
+
+*/
+
+/*
+---------------------------------------GFG Solution using Iteration and Queue-----------------------------
+
+TC - O(n)
+SC - O(n)
+*/
+
+/*
+class Tree
+{
+    public void solve(Node root, ArrayList<Integer> res)
+    {
+        if(root==null)
+            return;
+        
+        Queue<Node> q=new LinkedList<>();
+        q.offer(root);
+        
+        Node top=null;
+        while(!q.isEmpty())
+        {
+            top=q.poll();
+            while(top!=null)
+            {
+                res.add(top.data);
+                if(top.left!=null)
+                    q.offer(top.left);
+                top=top.right;
+            }
+            
+        }
+    }
+     public ArrayList<Integer> diagonal(Node root)
+     {
+           //add your code here.
+           ArrayList<Integer> res=new ArrayList<>();
+           if(root==null)
+                return res;
+        
+            solve(root,res);
+            return res;
+      }
+}
+
+*/
