@@ -123,3 +123,73 @@ class VerticalOrderTraversalBT
   }
 
 */
+
+
+
+/*
+
+------------------------------------------GFG Solution using Queue--------------------------------------------
+
+TC - O(nlogn)
+SC - O(n)
+*/
+/*
+class BinaryTree
+{
+    static class TreeNode
+    {
+        Node root;
+        int hd;
+        
+        TreeNode(Node root, int hd)
+        {
+            this.root=root;
+            this.hd=hd;
+        }
+    }
+    static ArrayList <Integer> verticalOrder(Node root)
+    {
+        // add your code here
+        ArrayList<Integer> res=new ArrayList<>();
+        if(root==null)
+            return res;
+        
+        int hd=0;
+        Queue<TreeNode> q=new LinkedList<>();
+        q.offer(new TreeNode(root, hd));
+        
+        TreeMap<Integer, ArrayList<Integer>> hm=new TreeMap<>();
+        
+        while(!q.isEmpty())
+        {
+            TreeNode temp=q.poll();
+            hd=temp.hd;
+            
+            if(hm.containsKey(hd))
+                hm.get(hd).add(temp.root.data);
+            else
+            {
+                ArrayList<Integer> subList=new ArrayList<>();
+                subList.add(temp.root.data);
+                hm.put(hd, subList);
+            }
+            
+            if(temp.root.left!=null)
+                q.offer(new TreeNode(temp.root.left, hd-1));
+                
+            if(temp.root.right!=null)
+                q.offer(new TreeNode(temp.root.right, hd+1));
+        }
+        
+        for (Map.Entry<Integer, ArrayList<Integer> > entry : hm.entrySet())
+        {
+            ArrayList<Integer> al = entry.getValue();
+            for (Integer i : al)
+                res.add(i);
+        }
+        
+        return res;
+    }
+}
+
+*/
