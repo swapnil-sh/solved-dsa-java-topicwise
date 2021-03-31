@@ -1,4 +1,4 @@
-/*Print Diagonal Ttaversal of Binary Tree - Techies Delight Java Recursive Solution using HashMap and Iterative Solution using Queue*/
+/*Print Diagonal Ttaversal of Binary Tree - Techies Delight and GeeksforGeeks Java Recursive Solution using Preorder and HashMap and Iterative Solution using Queue*/
 
 class DiagonalTravBT
 {
