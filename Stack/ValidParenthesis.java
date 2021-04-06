@@ -71,6 +71,107 @@ class ValidParenthesis
 
 
 /*
+--------------------------Using Map and Stack--------------------------
+
+*/
+   
+/*
+class Solution
+{
+    public boolean isValid(String s) 
+    {
+        if(s.length()%2!=0)
+            return false;
+        
+        int n=s.length();
+        
+        int i;
+        Map<Character, Character> mp=new HashMap<>();
+        Stack<Character> st=new Stack<>();
+        
+        mp.put(')','(');
+        mp.put('}','{');
+        mp.put(']','[');
+        
+        
+        for(i=0;i<n;i++)
+        {
+            char c=s.charAt(i);
+            if(mp.containsValue(c))
+                st.push(c);
+            
+            else if(st.isEmpty() || mp.get(c)!=st.pop())
+                return false;
+        }
+        
+        return st.isEmpty();
+            
+    }
+}
+*/
+
+
+/*
+-----------------------------Using Map and Pointer---------------------------------
+TC - O(n^2)
+SC - O(1)
+*/
+/*
+class Solution
+{
+    Map<Character, Character> mp;
+    private int getTop(String s, int i)
+    {
+        int right=0;
+        while(i>=0)
+        {
+            char c=s.charAt(i);
+            if(mp.containsKey(c))// ch = is closing bracket
+                right++;
+            else
+                right--;
+            
+            if(right<0)
+                return i; 
+            i--;
+        }
+        
+        return -1;
+    }
+    public boolean isValid(String s) 
+    {
+        if(s.length()%2!=0)
+            return false;
+        
+        int n=s.length();
+        
+        int i,top=0;
+        mp=new HashMap<>();
+        mp.put(')','(');
+        mp.put('}','{');
+        mp.put(']','[');
+        
+        
+        for(i=0;i<n;i++)
+        {
+            char c=s.charAt(i);
+            if(mp.containsValue(c))
+                top=i;
+            else 
+            {
+                if(top==-1 || mp.get(c)!=s.charAt(top))
+                    return false;
+                else
+                    top=getTop(s, top-1);
+            }
+        }
+        
+        return top==-1;  
+    }
+}
+*/
+
+/*
 --------------------------Using Recursion--------------------------
 
 */
