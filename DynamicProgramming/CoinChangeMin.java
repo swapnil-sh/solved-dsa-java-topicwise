@@ -2,11 +2,61 @@
 /*Problem Type - DP and Unbounded Knapsack.*/
 
 
+/*
+--------------------------Tabulation Solution-------------------------------------
+
+TC - O(n*n)
+SC - O(n*n)
+*/
+
+class CoinChangeMin
+{
+    int dp[][];
+    private int solve(int a[], int amt, int n)
+    {   
+        dp=new int[a.length+1][amt+1];
+        
+        int i,j;
+        for(i=0;i<n+1;i++)
+        {
+            for(j=0;j<amt+1;j++)
+            {
+                if(i==0)
+                    dp[i][j]=Integer.MAX_VALUE-1;
+                if(j==0)
+                    dp[i][j]=0;
+            }
+        }
+        
+        for(i=1;i<n+1;i++)
+        {
+            for(j=1;j<amt+1;j++)
+            {
+                if(a[i-1]<=j)
+                    dp[i][j]=Math.min(1+dp[i][j-a[i-1]], dp[i-1][j]);
+                
+                else
+                    dp[i][j]=dp[i-1][j];
+            }
+        }
+
+        return dp[n][amt];
+    }
+    public int coinChange(int[] a, int amt) 
+    {
+        int res=solve(a,amt,a.length);
+        
+        if(res<0 || res==Integer.MAX_VALUE-1)
+            return -1;
+        return res;
+    }
+}
+
 
 /*
 --------------------------Memoization Solution-------------------------------------
 
-TC - O(2^n)+O(
+TC - O(2^n)
 SC - O(nn)
 */
 
@@ -52,6 +102,9 @@ class CoinChangeMin
     }
 }
 */
+
+
+
 /*
 --------------------------Recursive Solution-------------------------------------
 
