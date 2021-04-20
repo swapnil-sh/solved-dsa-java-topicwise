@@ -1,8 +1,8 @@
 /*11. Container With Most Water - Leetcode Java Solutions*/
 
 /*
-------------------------Brute Force-----------------------
-TC - O(n^2)
+------------------------Two Pointers Solution-----------------------
+TC - O(n)
 SC - O(1)
 */
 
