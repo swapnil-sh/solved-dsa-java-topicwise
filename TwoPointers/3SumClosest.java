@@ -1,4 +1,4 @@
-/*16. 3Sum Closest - Leetcode Java Soltuion*/
+/*16. 3Sum Closest - Leetcode Java Solution*/
 
 /*
 ----------------------Two Pointer------------------------------
