@@ -1,4 +1,4 @@
-/*160. Intersection of Two Linked Lists - Leetcode Two Pointer Java Solution*/
+/*160. Intersection of Two Linked Lists - Leetcode Java Solutions*/
 
 /*-------------------------Second Optimal Java Solution-------------------------
 
