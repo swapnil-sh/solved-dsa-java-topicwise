@@ -1,4 +1,4 @@
-/* Activity Selection - GeeksforGeeks Java Solution*/
+/* Activity Selection - GeeksforGeeks Java Solution same as N meetings in one Room*/
 
 /*
 -------------------------Greedy Approach--------------------------------
