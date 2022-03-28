@@ -1,5 +1,12 @@
 /* Implementing Dijkstra | Set 1 (Adjacency Matrix) - GeeksforGeeks Java Solution*/
 
+
+/*
+-------------------Naive Solution------------------------
+
+TC - O(v^2)
+SC - O(v)
+*/
 class DijkstraAlgo
 {
     static int minDistance(int dist[],boolean set[],int V)

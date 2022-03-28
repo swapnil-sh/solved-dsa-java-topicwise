@@ -1,4 +1,6 @@
-/*102. Binary Tree Level Order Traversal - Leetcode BFS,DFS and Simple Recursion Solution*/
+/*102. Binary Tree Level Order Traversal - Leetcode BFS,DFS and Simple Recursion Solution
+https://leetcode.com/problems/binary-tree-level-order-traversal/submissions/
+*/
 
 
 //----------------------Level order Traversal(BFS-Queue)--------------------------------
@@ -104,7 +106,7 @@ public void levelOrderHelper(List<List<Integer>> res, TreeNode root, int level)
 
 
 
-//----------------------Level order Traversal(Using Recursion)--------------------------------
+//----------------------Level order Traversal(Using Recursion - 1)--------------------------------
 
 
 class Solution
@@ -152,6 +154,43 @@ class Solution
         }
         
         return ans;
+    }
+}
+*/
+
+//----------------------Level order Traversal(Using Recursion - 2)--------------------------------
+/*
+class Solution {
+    
+    private void util(TreeNode root, List<List<Integer>> res, int level) {
+        
+        if(root == null)
+            return;
+        
+        List<Integer> temp;
+        
+       if(res.size() == level) {
+            temp = new ArrayList<>();
+            temp.add(root.val);
+            res.add(temp);
+        }
+        else {
+            temp = res.get(level);
+            temp.add(root.val);
+        }
+        
+        
+        util(root.left, res, level+1);
+        util(root.right, res, level+1);
+        
+        return;
+            
+    }
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        
+        List<List<Integer>> res = new ArrayList<>();
+        util(root, res, 0);
+        return res;
     }
 }
 */

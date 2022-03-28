@@ -1,6 +1,5 @@
 /*Print string of odd length in ‘X’ format - GeeksforGeeks Java Solution*/
 
-
 import java.io.*;
 import java.util.*;
 
@@ -17,7 +16,7 @@ public class XPatternStr
         {
             String s=br.readLine();
             int n=s.length();
-            int i,j,k;
+            int i,j;
 
             if(n%2==0)
                 continue;
@@ -29,7 +28,7 @@ public class XPatternStr
                     if(i==j)
                         System.out.print(s.charAt(i));
                     else if((i+j)==(n-1))
-                        System.out.print(s.charAt(i));
+                        System.out.print(s.charAt(n-i-1));
                     else
                         System.out.print(" ");
                 }

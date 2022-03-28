@@ -1,0 +1,32 @@
+Round 1(1 hour): This was an Algorithm round conducted by one of the Software Engineers.
+
+    Check for Balanced Parenthesis
+    A similar problem like Minimum Platforms required
+
+Round 2(1 Hour); This was a Systems Design round with one of the Senior Software Engineers.
+
+    Design a SCALABLE music streaming platform like Wynk, AmazonPrime
+    I was expected to write DB Design, Memory Calculation, Required APIs, Required microservices. Later, I was asked to find the loopholes in the same design.
+
+Round 3(20 minutes): This round was conducted by Team Lead.
+
+    Why do we use Agile?
+    What is a waterfall model?
+    Why looking for a job switch?
+    Explain the product architecture of your project in your previous company.
+
+
+
+    Intro + Project discussion
+    OOPs concepts
+    Coin change problem: https://leetcode.com/problems/coin-change/
+    Sum root to leaf numbers: https://leetcode.com/problems/sum-root-to-leaf-numbers/
+https://www.geeksforgeeks.org/move-zeroes-end-array/
+
+2. https://www.geeksforgeeks.org/reversing-first-k-elements-queue/
+
+3. Reverse the Linked list (both iterative and recursive).
+
+4. https://www.geeksforgeeks.org/print-nodes-at-k-distance-from-root/
+
+5. https://www.geeksforgeeks.org/nth-node-from-the-end-of-a-linked-list/
