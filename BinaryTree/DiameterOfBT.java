@@ -1,4 +1,6 @@
-/*543. Diameter of Binary Tree - Leetcode Java Solution O(n) and O(n2)*/
+/*543. Diameter of Binary Tree - Leetcode Java Solutions
+https://leetcode.com/problems/diameter-of-binary-tree/
+*/
 
 /**
  * Definition for a binary tree node.
@@ -15,21 +17,29 @@
  *     }
  * }
  */
+
+/*
+----------------Optimized Recursive Solution----------------------------
+TC - O(n)
+SC - O(n)
+*/
 class DiameterOfBT
 {
-    private int maxNodes=0;
+    private int maxEdges=0;
     
     public int diameter(TreeNode root)
     {
         if(root==null)
             return 0;
         
-        int lh=diameter(root.left);
-        int rh=diameter(root.right);
+        int lh = diameter(root.left);
+        int rh = diameter(root.right);
         
-        maxNodes=Math.max(lh+rh+1,maxNodes);
         
-        return Math.max(lh,rh)+1;
+        if((lh+rh) > maxEdges)
+            maxEdges = lh+rh;
+        
+        return 1+Math.max(lh,rh);
     }
     
     public int diameterOfBinaryTree(TreeNode root)
@@ -38,15 +48,65 @@ class DiameterOfBT
             return 0;
         
         diameter(root);
-        
-        return maxNodes==0?0:maxNodes-1;
-        
+        return maxEdges;   
     }
 }
 
+/*
+----------------Brute Force Recursive Solution----------------------------
+TC - O(n^2)
+SC - O(n^2)
+*/
+
+/*
+class Solution
+{
+    private int maxEdges=0;
+    private int height(TreeNode root) {
+        
+        if(root == null)
+            return 0;
+        
+        int lh = height(root.left);
+        int rh = height(root.right);
+        
+        return 1+Math.max(lh, rh);
+    }
+    public int diameter(TreeNode root)
+    {
+        if(root==null)
+            return 0;
+        
+        int lh = height(root.left);
+        int rh = height(root.right);
+        
+        if((lh+rh) > maxEdges)
+            maxEdges = lh+rh;
+        
+        diameter(root.left);
+        diameter(root.right);
+        
+        return 1+Math.max(lh,rh);
+    }
+    
+    public int diameterOfBinaryTree(TreeNode root)
+    {
+        if(root == null)
+            return 0;
+        
+        diameter(root);
+        return maxEdges;   
+    }
+}
+*/
 
 
 
+/*
+----------------Optimized Recursive Solution - 2----------------------------
+TC - O(n)
+SC - O(n)
+*/
 /*
 
 class Solution
