@@ -3,7 +3,11 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/submissions/
 */
 
 
-//----------------------Level order Traversal(BFS-Queue)--------------------------------
+/*----------------------Level order Traversal(BFS-Queue)--------------------------------
+
+TC - O(n)
+SC - O(n)
+*/
 
 
 
@@ -65,47 +69,6 @@ class LevelOrderTraversal
 }
 
 
-
-//----------------------Level order Traversal(Using DFS Recursion)--------------------------------
-
-
-/*
-public List<List<Integer>> levelOrder(TreeNode root)
-{
-		List<List<Integer>> res = new ArrayList<>();
-		if (root == null)
-			return res;
-		levelOrderHelper(res, root, 0);
-		return res;
-}
-	
-public void levelOrderHelper(List<List<Integer>> res, TreeNode root, int level) 
-{
-		if (root == null)
-			return;
-		List<Integer> curr;
-		if (level >= res.size()) 
-		{
-			curr = new ArrayList<>();
-			curr.add(root.val);
-			res.add(curr);
-		} 
-		else 
-		{
-			curr = res.get(level); 
-			curr.add(root.val); 
-			
-		}
-		levelOrderHelper(res, root.left, level + 1);
-		levelOrderHelper(res, root.right, level + 1);
-	}
-
-
-
-
-
-
-
 //----------------------Level order Traversal(Using Recursion - 1)--------------------------------
 
 
@@ -158,7 +121,15 @@ class Solution
 }
 */
 
-//----------------------Level order Traversal(Using Recursion - 2)--------------------------------
+/*----------------------Level order Traversal(Using Recursion - 2)--------------------------------
+
+TC - O(n)
+SC - O(n)
+
+Note :
+Comparing size of res and level is the main logic.
+*/
+
 /*
 class Solution {
     

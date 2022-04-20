@@ -118,39 +118,51 @@ class Solution
 }
 */
 
-//-----------------------------------Leetcode Recursive Solution-----------------------------------------
+/*-----------------------------------Leetcode Recursive Solution-----------------------------------------
+
+TC - O(n^2) ----- due to add and remove operation of array lists
+SC - O(n)
+*/
 
 
 /*
-class Solution 
-{
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root)
-    {
-        List<List<Integer>> res=new ArrayList<>();
-        solve(root, 0, res);
+class Solution {
+    
+    private void util(TreeNode root, List<List<Integer>> res, int level) {
         
-        return res;
+        if(root == null) {
+            return;
+        }
+        
+        boolean leftToRight = level%2==0;
+        List<Integer> temp;
+        
+        if(res.size() == level)
+            temp = new ArrayList<>();
+        else
+            temp = res.remove(level) ;
+        
+        
+        if(leftToRight) {
+            temp.add(root.val);
+        }
+        else
+            temp.add(0, root.val);
+        
+        
+        res.add(level, temp);
+        util(root.left, res, level+1);
+        util(root.right, res, level+1);   
     }
     
-    private void solve(TreeNode root, int levelFromRoot, List<List<Integer>> res)
-    {
-        if(root!=null)
-        {
-            boolean leftToRight=levelFromRoot%2==0;
-            if(res.size()==levelFromRoot)
-                res.add(new ArrayList<>());
-            
-            List<Integer> resAtLevel=res.remove(levelFromRoot);
-            
-            if(leftToRight)
-                resAtLevel.add(root.val);
-            else
-                resAtLevel.add(0,root.val);
-            
-            res.add(levelFromRoot,resAtLevel);
-            solve(root.left,levelFromRoot+1,res);
-            solve(root.right,levelFromRoot+1,res);
-        }
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null)
+            return res;
+        
+        util(root, res, 0);
+        return res;
     }
 }
 */
