@@ -1,4 +1,6 @@
-/*Two Sum - Leetcode Java Solutions*/
+/*1. Two Sum - Leetcode Java Solutions
+https://leetcode.com/problems/two-sum/
+*/
 
 /*
 ---------------------Single Pass HashMap Solution------------------------------
@@ -89,34 +91,26 @@ SC - O(1)
 
 */
 
-/*class Solution 
-{
-    public int[] twoSum(int[] a, int t)
-    {
+/*class Solution {
+    public int[] twoSum(int[] a, int t) {
+
         int res[]=new int[2];
         if(a.length==0)
             return res;
         
-        int i,j,n,diff=0,flag=0;;
-        n=a.length;
+        int i,j,diff=0;
+        int n=a.length;
         
-        for(i=0;i<n-1;i++)
-        {
+        for(i=0;i<n-1;i++) {
             diff=t-a[i];
-            for(j=i+1;j<n;j++)
-            {
-                if(a[j]==diff)
-                {
+            for(j=i+1;j<n;j++){
+            	if(a[j]==diff){
                     res[0]=i;
                     res[1]=j;
-                    flag=1;
+                    return res;
                 }
             }
-            
-            if(flag==1)
-                break;
         }
-        
-        return res;
+        return null;
     }
 }*/
