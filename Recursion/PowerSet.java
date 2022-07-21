@@ -54,6 +54,7 @@ Choose an element add it and continue recursion.
 Remove element, dont choose it and continue recursion.
 
 TC - O(2^n)
+SC - O(n)
 
 */
 
