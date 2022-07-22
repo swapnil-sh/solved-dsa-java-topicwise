@@ -21,25 +21,27 @@ class UniqueSubsets {
        
         temp.add(a[i]);
         util(a, i+1, temp, res); 
+        temp.remove(temp.size()-1);
+         
         while(i<a.length-1 && a[i]==a[i+1]) {
             i++;
         }
-        temp.remove(temp.size()-1);
-        util(a, i+1, temp, res);    
+         
+        util(a, i+1, temp, res);
+         
     }
     
     public List<List<Integer>> subsetsWithDup(int[] a) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();
-        
-        util(a, 0, temp, res);
+        Arrays.sort(a);
+        List<List<Integer>> res = new ArrayList<>();        
+        util(a, 0, new ArrayList<>(), res);
         return res;
     }
 }
 
 
 /*
---------------------CodeStudio Solution-----------------------
+--------------------CodeStudio Solution (Same as above)-----------------------
 
 */
 
