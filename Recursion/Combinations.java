@@ -8,23 +8,26 @@ https://leetcode.com/problems/combinations/
 TC - O(2^n)
 SC - (n) (height of tree)
 
-Slight improvement by ignoring the subsets of larger sizes than k
+Slight improvement by ignoring the subsets of larger sizes than k and ignoring extra calls when we have won't be able to fir k elements
 */
 
- class Combinations {
+class Combinations {
     
     private void util(int n, int k, int i, List<Integer> temp, List<List<Integer>> res) {
         
-        if(temp.size() == k) {
+        if(k == 0) {
             res.add(new ArrayList<>(temp));
             return;
         }
+        
+        if(k > n-i+1)
+            return;
         
         if(i > n)
             return;
         
         temp.add(i);
-        util(n, k, i+1, temp, res);
+        util(n, k-1, i+1, temp, res);
         temp.remove(temp.size()-1);
         util(n, k, i+1, temp, res);
         return;
