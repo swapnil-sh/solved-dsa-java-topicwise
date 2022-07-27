@@ -4,8 +4,8 @@ https://leetcode.com/problems/combination-sum/
 
 /*
 --------------------Recursion Choice Algorith-------------------
-TC - O(2^t) where t=target sum 
-SC - ??
+TC - O(2^t) where t=target sum  (if target = 8 and if there's an element in the array who's value is 1 and then we need to add 1, 8 times so that it adds upto target 2^t is TC )
+SC - No of combinations we will be having plus the auxilliary space.
 
 Remember an element can be chosen multiple times to add upto the given sum
 */
