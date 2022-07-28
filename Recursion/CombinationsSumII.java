@@ -50,6 +50,51 @@ class CombinationsSumII {
 
 
 /*
+----------------Recursive Approach by Choice Algorithm--------------------
+
+TC - O(2^n)
+SC - O(n), 
+*/
+
+class Solution {
+    
+    
+    private void util(int a[], int t, int i, List<Integer> temp,  List<List<Integer>> res) {
+        
+        if(t == 0) {
+            res.add(new ArrayList<>(temp));
+            return;
+        }
+        
+
+        if(i >= a.length || t < 0)
+            return;
+        
+        t = t - a[i];
+        temp.add(a[i]);
+        
+        util(a, t, i + 1, temp, res);
+        
+        t = t + a[i];
+        temp.remove(temp.size() - 1);
+        
+        while(i < a.length-1 && a[i] == a[i+1])
+            i++;
+        
+        util(a, t , i + 1, temp, res);
+    }
+    
+    public List<List<Integer>> combinationSum2(int[] a, int t) {
+        
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(a);
+        util(a, t, 0, new ArrayList<>(), res);
+        return res;   
+    }
+}
+
+
+/*
 -------------------Brute Force using CombinationsSum-1  approach and HashSet-------------------------
 
 TC - O((2^t) * (k*log(size of hashet)) * xlog(x))
