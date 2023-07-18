@@ -1,4 +1,3 @@
-
 /* 40. Combination Sum II - Leetcode Java Solutions
 https://leetcode.com/problems/combination-sum-ii/
 */
@@ -13,26 +12,18 @@ SC - O(k*x), x=combinations
 */
 
 class CombinationsSumII {
-    
-    
     private void util(int a[], int t, int pos, List<Integer> temp,  List<List<Integer>> res) {
-        
         if(t == 0) {
             res.add(new ArrayList<>(temp));
             return;
         }
-        
         if(t < 0)
             return;
-        
         for(int i = pos; i < a.length; i++) {
-            
             if(i > pos && a[i] == a[i-1])
                 continue;
-            
             if(a[i] > t) 
                 break;
-            
             temp.add(a[i]);
             util(a, t - a[i], i + 1, temp, res);
             temp.remove(temp.size() - 1);
@@ -40,7 +31,6 @@ class CombinationsSumII {
     }
     
     public List<List<Integer>> combinationSum2(int[] a, int t) {
-        
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(a);
         util(a, t, 0, new ArrayList<>(), res);
