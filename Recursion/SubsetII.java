@@ -76,5 +76,33 @@ class SubsetII {
     }
 }
 
+/*
+Using For loop we will select element for each position and keep a check for duplicate elements
+Time: O(N * 2^N)
+Space: O(N * 2^N)
+*/
+
+class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] a) {
+        Arrays.sort(a);
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+
+        subsetSumII(a, 0, temp, res);
+        return res;
+    }
+    private void subsetSumII(int[] a, int ind, List<Integer> temp, List<List<Integer>> res) {
+        res.add(new ArrayList<>(temp));
+        for (int i=ind; i<a.length; i++) {
+            if (i>ind && a[i]==a[i-1]) 
+                continue;
+            
+            temp.add(a[i]);
+            subsetSumII(a, i+1, temp, res);
+            temp.remove(temp.size()-1);
+        }
+    }
+}
+
 
 
