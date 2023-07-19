@@ -2,20 +2,6 @@
 
 Subset II - Leetcode
 https://leetcode.com/problems/subsets-ii/
-
-Backtracking
-We need to know when we should not add a list to the result list.
-By observation, a duplicate list occurs when i >= 1 (when i = 0, duplicate cannot occur) and nums[i - 1] == nums[i] and in the previous step we did not pick nums[i - 1]. The information of whether it picks or not could be passed down by a boolean parameter isPicked.
-
-If the above condition is satisfied:
-
-Do not add the list to the result list.
-Do not do the subproblem after picking the current element.
-Only do the subproblem after not picking the current element.
-Note: Be careful where we should put the numList.add(val) and nu
-
-Time: O(N * 2^N)
-Space: O(N * 2^N)
 */
 
 class SubsetII {
@@ -46,6 +32,21 @@ class SubsetII {
     }
 }
 
+/*
+Backtracking
+We need to know when we should not add a list to the result list.
+By observation, a duplicate list occurs when i >= 1 (when i = 0, duplicate cannot occur) and nums[i - 1] == nums[i] and in the previous step we did not pick nums[i - 1]. The information of whether it picks or not could be passed down by a boolean parameter isPicked.
+
+If the above condition is satisfied:
+
+Do not add the list to the result list.
+Do not do the subproblem after picking the current element.
+Only do the subproblem after not picking the current element.
+Note: Be careful where we should put the numList.add(val) and nu
+
+Time: O(N * 2^N)
+Space: O(N * 2^N)
+*/
 
 class SubsetII {
     private void subsets(int[] nums,int i, List<Integer> numList, List<List<Integer>> result, boolean isPicked) {
