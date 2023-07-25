@@ -44,11 +44,44 @@ class Permutations {
 }
 
 /*
------------------ Recursive Swap Element Approach--------------------
+----------------- Recursive Swap Element Approaches--------------------
 
 TC - O(n*n!)
 SC - O(n)
 */
+
+class Solution {
+    public List<List<Integer>> permute(int[] a) {
+        List<List<Integer>> res = new ArrayList<>();
+        boolean freq[] = new boolean[a.length];
+        permutations(a, 0, new ArrayList<>(), res);
+        return res;
+    }
+
+    private void permutations(int a[], int pos, List<Integer> temp, List<List<Integer>> res) {
+        
+        if (temp.size() == a.length) {
+            res.add(new ArrayList<>(temp));
+            return;
+        }
+
+        for (int i=pos; i<a.length; i++) {
+            swap(a, i, pos);
+            temp.add(a[pos]);
+            permutations(a, pos+1, temp, res);
+            swap(a, i, pos);
+            temp.remove(temp.size()-1);
+        }
+    }
+
+    private void swap(int a[], int i, int j) {
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+}
+
+/*
 
 class Solution {
     
