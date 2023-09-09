@@ -11,38 +11,31 @@ TC - O(2^9)
 SC - O(n)
 */
 
+
 class CombinationSumIII {
-    
-    private static void util(int pos, int t, int k, List<Integer> temp,  List<List<Integer>> res) {
-        
+    public List<List<Integer>> combinationSum3(int k, int n) {
+        List<List<Integer>> res = new ArrayList<>();
+        util(k, n, 1, new ArrayList<>(), res);
+        return res;  
+    }
+    private void util(int k, int t, int num, List<Integer> temp,  List<List<Integer>> res) {
         if(t == 0 && temp.size() == k) {
             res.add(new ArrayList<>(temp));
             return;
         }
-        
-        if(pos > 9) {
+        if(t < 0)
             return;
-        }
-        
-        
-        for(int i = pos; i <= 9; i++) {
-            
-            if(i > t)
+
+        if (temp.size() > k) 
+            return;
+
+        for(int i = num; i <= 9; i++) {
+            if(i > t) 
                 break;
-            
             temp.add(i);
-            util(i + 1, t - i, k, temp, res);
+            util(k, t - i, i+1, temp, res);
             temp.remove(temp.size() - 1);
         }
-        
-    }
-
-    public List<List<Integer>> combinationSum3(int k, int t) {
-        
-        List<List<Integer>> res = new ArrayList<>();
-        util(1, t, k, new ArrayList<>(), res);
-        return res;
-        
     }
 }
 
