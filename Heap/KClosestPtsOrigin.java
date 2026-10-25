@@ -8,34 +8,29 @@ Space Complexity: O(N)
 
 */
 
-class KClosestPtsOrigin
-{
-    public int[][] kClosest(int[][] points, int K) 
-    {
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b)-> {
-            return b[0]-a[0];
-        });
-        
-        for(int[] p : points) 
-        {
-            int dist = p[0] * p[0] + p[1] * p[1];
-            pq.add(new int[]{dist, p[0], p[1]});
-            
-            if(pq.size()>K) 
-                pq.poll();
-            
+class Solution {
+    public int[][] kClosest(int[][] points, int k) {
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+            (a, b) -> Long.compare(distance(b), distance(a))
+        );
+        for (int[] point : points) {
+            maxHeap.offer(point);
+
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
         }
-        
-        int[][] res = new int[K][2];
-        int i=0;
-        while(!pq.isEmpty()) 
-        {
-            int[] tmp = pq.poll();
-            res[i][0] = tmp[1];
-            res[i++][1] = tmp[2];
+        int[][] res = new int[k][2];
+        for (int i = 0; i < k; i++) {
+            res[i] = maxHeap.poll();
         }
-        
         return res;
+    }
+
+    private long distance(int[] point) {
+        long x = point[0];
+        long y = point[1];
+        return x * x + y * y;
     }
 }
 
